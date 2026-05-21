@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -6,7 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
 import AuthGuard from "./components/auth/AuthGuard";
-import { DashboardLayout } from "./components/dashboard/DashboardLayout";
+import { ErpLayout } from "./components/erp/ErpLayout";
+import { ErpDashboard } from "./components/erp/Dashboard";
 import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Settings from "./pages/Settings";
@@ -40,13 +40,16 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />} />
-            
+
             <Route path="/" element={
               <AuthGuard>
-                <DashboardLayout />
+                <ErpLayout />
               </AuthGuard>
             }>
-              <Route index element={<Index />} />
+              <Route index element={<ErpDashboard />} />
+
+              <Route path="comercial/facturacion" element={<Index />} />
+
               <Route path="analytics" element={<AnalyticsPage />} />
               <Route path="operations" element={<OperationsPage />} />
               <Route path="portfolio" element={<PortfolioPage />} />
@@ -66,7 +69,7 @@ const App = () => (
               <Route path="history" element={<HistoryPage />} />
               <Route path="settings" element={<Settings />} />
             </Route>
-            
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
