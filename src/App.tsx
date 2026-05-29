@@ -28,6 +28,12 @@ import NotFound from "./pages/NotFound";
 import AnalyticsPage from "./pages/AnalyticsPage";
 import OperationsPage from "./pages/OperationsPage";
 import PortfolioPage from "./pages/PortfolioPage";
+import ModulePlaceholder from "./pages/ModulePlaceholder";
+import { managementSections } from "./components/erp/erpData";
+
+const placeholderRoutes = managementSections
+  .flatMap((s) => s.modules)
+  .filter((m) => m.href.startsWith("/finanzas/") || m.href.startsWith("/rrhh/") || m.href.startsWith("/tools/"));
 
 const queryClient = new QueryClient();
 
@@ -68,7 +74,11 @@ const App = () => (
               <Route path="reports" element={<ReportsPage />} />
               <Route path="history" element={<HistoryPage />} />
               <Route path="settings" element={<Settings />} />
+              {placeholderRoutes.map((m) => (
+                <Route key={m.href} path={m.href.slice(1)} element={<ModulePlaceholder />} />
+              ))}
             </Route>
+
 
             <Route path="*" element={<NotFound />} />
           </Routes>
