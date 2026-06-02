@@ -18,17 +18,18 @@ interface SidebarProps {
 
 const colorMap: Record<string, string> = {
   commercial: "text-primary",
-  financial: "text-sky-600",
-  human: "text-cyan-600",
-  tools: "text-indigo-600",
+  financial: "text-primary",
+  human: "text-primary",
+  tools: "text-primary",
 };
 
 const bgColorMap: Record<string, string> = {
   commercial: "bg-primary/10 border-primary/20",
-  financial: "bg-sky-500/10 border-sky-500/20",
-  human: "bg-cyan-500/10 border-cyan-500/20",
-  tools: "bg-indigo-500/10 border-indigo-500/20",
+  financial: "bg-primary/10 border-primary/20",
+  human: "bg-primary/10 border-primary/20",
+  tools: "bg-primary/10 border-primary/20",
 };
+
 
 export function ErpSidebar({ collapsed, onToggle }: SidebarProps) {
   const { pathname } = useLocation();
