@@ -4,8 +4,10 @@ import { Plus, Pencil, Trash2, Search, RefreshCw, X, AlertCircle, Database } fro
 import { managementSections } from "@/components/erp/erpData";
 import { getIcon } from "@/components/erp/icons";
 import { moduleSchemas, type FieldDef } from "@/components/erp/moduleSchemas";
+import { ModuleConnections } from "@/components/erp/ModuleConnections";
 import { api } from "@/lib/api";
 import { useToast } from "@/hooks/use-toast";
+
 
 const fmt = {
   money: (v: any) =>
@@ -186,8 +188,12 @@ const ModulePlaceholder = () => {
         </div>
       </div>
 
+      {/* Conexiones entre módulos */}
+      <ModuleConnections path={pathname} />
+
       {/* Search */}
       <div className="flex items-center gap-2">
+
         <div className="relative flex-1">
           <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
           <input

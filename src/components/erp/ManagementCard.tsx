@@ -9,10 +9,11 @@ import { Badge } from "@/components/ui/badge";
 
 const colorMap: Record<string, { text: string; bg: string; border: string; hover: string }> = {
   commercial: { text: "text-primary", bg: "bg-primary/10", border: "border-primary/20", hover: "hover:border-primary/40" },
-  financial: { text: "text-sky-600", bg: "bg-sky-500/10", border: "border-sky-500/20", hover: "hover:border-sky-500/40" },
-  human: { text: "text-cyan-600", bg: "bg-cyan-500/10", border: "border-cyan-500/20", hover: "hover:border-cyan-500/40" },
-  tools: { text: "text-indigo-600", bg: "bg-indigo-500/10", border: "border-indigo-500/20", hover: "hover:border-indigo-500/40" },
+  financial:  { text: "text-primary", bg: "bg-primary/10", border: "border-primary/20", hover: "hover:border-primary/40" },
+  human:      { text: "text-primary", bg: "bg-primary/10", border: "border-primary/20", hover: "hover:border-primary/40" },
+  tools:      { text: "text-primary", bg: "bg-primary/10", border: "border-primary/20", hover: "hover:border-primary/40" },
 };
+
 
 interface Props { section: ManagementSection }
 
