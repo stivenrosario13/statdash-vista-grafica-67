@@ -146,3 +146,86 @@
   color: hsl(var(--primary));
 }
 
+/* ============================================================
+   ENTERPRISE THEME OVERRIDES
+   Unifica componentes legacy al esquema blanco + azul corporativo.
+   ============================================================ */
+
+/* Neutralizar gradientes y fondos oscuros heredados */
+[class*="from-slate-9"], [class*="from-slate-8"], [class*="from-slate-7"],
+[class*="to-slate-9"], [class*="to-slate-8"], [class*="to-slate-7"],
+[class*="via-slate-9"], [class*="via-slate-8"],
+[class*="from-blue-95"], [class*="from-blue-9"], [class*="to-blue-95"], [class*="to-blue-9"],
+[class*="via-blue-95"], [class*="via-blue-9"],
+[class*="from-gray-9"], [class*="to-gray-9"],
+[class*="from-zinc-9"], [class*="to-zinc-9"],
+.bg-slate-900, .bg-slate-800, .bg-slate-950,
+.bg-blue-950, .bg-blue-900,
+.bg-gray-900, .bg-gray-950 {
+  background-image: none !important;
+  background-color: hsl(var(--card)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Texto claro heredado -> foreground */
+.text-white, .text-slate-100, .text-slate-200, .text-slate-300,
+.text-blue-100, .text-blue-200, .text-blue-300,
+.text-gray-100, .text-gray-200, .text-gray-300 {
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Texto degradado -> primario sólido */
+.bg-clip-text.text-transparent {
+  background-image: none !important;
+  -webkit-text-fill-color: hsl(var(--primary)) !important;
+  color: hsl(var(--primary)) !important;
+}
+
+/* Patrones radiales oscuros */
+[class*="bg-[radial-gradient"] { background-image: none !important; }
+
+/* Acentos saturados -> azul primario */
+.text-emerald-300, .text-emerald-400, .text-emerald-500,
+.text-cyan-300, .text-cyan-400, .text-cyan-500,
+.text-indigo-400, .text-indigo-500,
+.text-purple-400, .text-purple-500,
+.text-sky-300, .text-sky-400 {
+  color: hsl(var(--primary)) !important;
+}
+
+/* Bordes saturados -> borde estándar */
+[class*="border-blue-4"], [class*="border-blue-3"],
+[class*="border-emerald-4"], [class*="border-emerald-3"],
+[class*="border-cyan-4"], [class*="border-cyan-3"],
+[class*="border-indigo-4"], [class*="border-purple-4"] {
+  border-color: hsl(var(--border)) !important;
+}
+
+/* Headers/banners corporativos unificados a azul */
+[class*="from-blue-6"], [class*="to-blue-6"],
+[class*="from-blue-7"], [class*="to-blue-7"],
+[class*="from-emerald-6"], [class*="to-emerald-7"],
+[class*="from-emerald-5"], [class*="to-emerald-5"] {
+  background-image: linear-gradient(to right, hsl(var(--primary)), hsl(217 91% 45%)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+}
+[class*="from-blue-6"] *, [class*="to-blue-6"] *,
+[class*="from-blue-7"] *, [class*="to-blue-7"] *,
+[class*="from-emerald-6"] *, [class*="to-emerald-7"] * {
+  color: inherit !important;
+}
+
+/* Tarjeta empresarial reutilizable */
+.enterprise-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.875rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.03);
+}
+.enterprise-card-hover { transition: box-shadow .2s ease, border-color .2s ease; }
+.enterprise-card-hover:hover {
+  border-color: hsl(var(--primary) / 0.35);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08);
+}
+
+
